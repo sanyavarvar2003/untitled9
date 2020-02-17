@@ -1,5 +1,9 @@
 import java.util.*
 import kotlin.random.Random
+var namelist : Array<String> = arrayOf("Dima", "Vova", "Sachka", "Valera", "Igor")
+var secondnamelist : Array<String> = arrayOf("Ivanov", "Petrov", "Sidorov")
+var shortnamelist : Array<String> = arrayOf("Dimovich", "Vovovich", "Sachkovich", "Valerovich", "Igorivech")
+var calllist : Array<String> = arrayOf("random name 1", "random name 2" , "random name 3" , "random name 4")
 
 class kvantorium (){
     var kvantor : Array<Kvant> = arrayOf(Kvant("Robo"), Kvant("IT"))
@@ -9,28 +13,42 @@ class Kvant(a:String){
 var kvan:Array<Group> = arrayOf(Group(), Group())
 var name : String = a
 }
-class Group(){
-  var students : Array<Student> = arrayOf()
-    var teacher : Array<Teacher> = arrayOf(Teacher("Michail", "Zubenko", "Petrovich"))
-}
-class Teacher(n:String, sec:String, short:String){
-    var name = n
-    var secname = sec
-    var shortname = short
+class Student(){                                                        //это готово
+    var name = ""
+    var secname = ""
+    var shortname = ""
     var date : Date = Date()
-}
-class Student(n:String, sec:String, short:String, aw:Array<String>){
-    var name = n
-    var secname = sec
-    var shortname = short
-    var date : Date = Date()
-    var awards : Array<String> = aw
-}
-fun main(){
-    var name : Array<String> = arrayOf("Dima", "Vova", "Sachka", "Valera", "Igor")
-    var secondname : Array<String> = arrayOf("Ivanov", "Petrov", "Sidorov")
-    var shortname : Array<String> = arrayOf("Dimovich", "Vovovich", "Sachkovich", "Valerovich", "Igorivech")
-    fun randomname (){
-        var rname = name[Random.nextInt(name.size)]
+    var awards : String = ""
+    init{
+        name = namelist[Random.nextInt(namelist.size)]
+        secname = secondnamelist[Random.nextInt(namelist.size)]
+        shortname = shortnamelist[Random.nextInt(namelist.size)]
     }
+
+
+}
+class Group(places:Int){                                                               //это почти готово
+  var students : Array<Student> = Array(places, {Student()})
+    var teacher : Array<Teacher> = arrayOf(Teacher())
+    var name = ""
+
+    init{
+        name = calllist[Random.nextInt(namelist.size)]
+    }
+}
+class Teacher(){                                                             //это готово
+    var name = ""
+    var secname = ""
+    var shortname = ""
+    var date : Date = Date()
+    init{
+        name = namelist[Random.nextInt(namelist.size)]
+        secname = secondnamelist[Random.nextInt(namelist.size)]
+        shortname = shortnamelist[Random.nextInt(namelist.size)]
+    }
+}
+
+fun main(){
+
+
 }
